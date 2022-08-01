@@ -1,0 +1,78 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="kodcss.css">
+	<title>Przemek Kawa</title>
+</head>
+<body>
+<div id="big">
+<div class="top"><h1>Liczba Skromna</h1></div>
+
+<div class="prawy">
+<center>
+<p>Def: Liczba Skromna n to taka liczba naturalna,
+ której cyfry można pogrupować w dwie liczby a i b w taki sposób,
+ że złączenie a i b daje n oraz, że n mod b = a. Przykład liczba 13 jest skromna.</p>
+<p>Podaj liczbę całkowitą</p>
+<input id="liczba">
+<button type="button" onclick="czySkroman()">
+Skromna?</button>
+	<p id="para"></p>
+	<p id="para2"></p>
+<script>
+function czySkroman() {
+var x,i,e=0;
+var anw = 0;
+  x=document.getElementById("liczba").value;
+  if(!isNaN(x)) // czy liczba?
+  {
+  x = Number(x);
+  
+  
+  if(Number.isInteger(x)==0) // czy Całkowita?
+	e=1;
+  x = parseInt(x);
+  var p ;
+  var t=10;
+  p=parseInt(Math.log10(x))
+  for(i=0;i<p;i++ && anw!=1)
+  {	
+	var a,b;
+	a = parseInt(x/t);
+	b = parseInt(x%t);
+	if(b!=0 && x%b==a) 
+	{
+		anw = 1; // Mamy skromna
+		
+	}
+	t=parseInt(t*10);
+  }
+  if(anw==1)
+	anw= "Skromna.";
+  else
+	anw="Nie skromna.";
+  document.getElementById("para2").innerHTML = anw;
+  document.getElementById("para").innerHTML = "";
+	if(e==1)
+	{
+		document.getElementById("para").innerHTML = "Zaokrągliłem do "+x+".";
+	}
+	
+  }
+  else
+  {
+	document.getElementById("para2").innerHTML = "";
+	document.getElementById("para").innerHTML = "To nie liczba.";
+  }
+  
+  
+}
+</script>	
+	
+</center>
+
+</div>
+<div class="stopa">
+	<h1>Przemysław Kawa &copy; 2020</h1>
+</div>
+</div>
+</body></html>

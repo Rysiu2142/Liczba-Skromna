@@ -1,0 +1,24 @@
+Def: Liczba Skromna n to taka liczba naturalna, 
+której cyfry mo¿na pogrupowaæ w dwie liczby a i b w taki sposób, 
+¿e z³¹czenie a i b daje n oraz, ¿e n mod b = a.
+
+
+Strategia:
+Podzia³ Liczby Skromnej na dwie grupy niekoniecznie polega na wybraniu do a jednej cyfry,
+ a do b wszystkie pozosta³e. Z tego powodu nale¿y rozpatrzeæ wszystkie mo¿liwe przypadki podzia³u.
+ Dla liczby o n-cyfrach jest n - 1 mo¿liwoœci podzia³u na dwie grupy.
+
+W celu wybrania podzia³u liczby n na a i b w i-tej iteracji nale¿y obliczyæ w nastêpuj¹cy sposób: 
+oblicz L = 10i. 
+Teraz na tego podstawie oblicz ze wzoru b = n mod L, a a = (n - b)/L. 
+Podany wzór na a jest równowa¿ny podzieleniu n przez L i odrzuceniu czêœci u³amkowej.
+
+Najmniejsz¹ liczb¹ Skromn¹ jest 13, 
+poniewa¿ mo¿na j¹ rozdzieliæ na a = 1 i b = 3. 
+Liczby te spe³niaj¹ nierównoœæ 13 mod 3 = 1.
+
+Przyk³ad: dla 9243
+i	L		b		a	czy spe³nia?
+1	10	9243 mod 10 = 3		924	9243 mod 3 = 0 ==? 924
+2	100	9243 mod 100 = 43	92	9243 mod 43 = 41 ==? 92
+3	1000	9243 mod 1000 = 243	9	9243 mod 243 = 9 ==? 9 (tak koniec)
